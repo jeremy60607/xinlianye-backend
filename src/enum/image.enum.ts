@@ -1,3 +1,3 @@
 export enum ImageTypeEnum {
-  CONSTRUCTION_SITE_DETAIL = 1
+  CONSTRUCTION_SITE_DETAIL = 1,
 }

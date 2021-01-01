@@ -1,7 +1,7 @@
 import '../envs';
 
-import {MysqlConnectionOptions} from 'typeorm/driver/mysql/MysqlConnectionOptions';
-import {NamingStrategy} from './typeorm.naming-strategy';
+import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOptions';
+import { NamingStrategy } from './typeorm.naming-strategy';
 
 const {
   XINLIANYE_DB_HOST,

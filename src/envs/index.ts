@@ -1,4 +1,4 @@
-import {envs} from './environment';
+import { envs } from './environment';
 
 const init = () => {
   Object.keys(envs).forEach(key => {

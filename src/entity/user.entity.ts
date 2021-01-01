@@ -1,18 +1,18 @@
 import { BaseEntity } from './base.entity';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-import { AdminRoleEnum, AdminStatusEnum } from '../enum/admin.enum';
+import { UserRoleEnum, UserStatusEnum } from '../enum/user.enum';
 
-@Entity('admins')
-export class AdminEntity extends BaseEntity {
+@Entity('users')
+export class UserEntity extends BaseEntity {
   @PrimaryGeneratedColumn() id: number;
 
   @Column() account: string;
 
   @Column() password: string;
 
-  @Column() role: AdminRoleEnum;
+  @Column() role: UserRoleEnum;
 
-  @Column() status: AdminStatusEnum;
+  @Column() status: UserStatusEnum;
 
   @Column() name: string;
 }

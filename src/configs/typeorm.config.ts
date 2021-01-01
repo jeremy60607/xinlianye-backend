@@ -1,6 +1,6 @@
 import '../../envs';
 
-import {MysqlConnectionOptions} from 'typeorm/driver/mysql/MysqlConnectionOptions';
+import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOptions';
 import { NamingStrategy } from './typeorm.naming-strategy';
 
 const {
@@ -20,9 +20,7 @@ const typeormConfig: MysqlConnectionOptions = {
   username: XINLIANYE_DB_USER,
   password: XINLIANYE_DB_PASS,
   database: XINLIANYE_DB_NAME,
-  entities: [
-
-  ],
+  entities: [],
   charset: 'utf8mb4',
   synchronize: false,
   namingStrategy: new NamingStrategy(),

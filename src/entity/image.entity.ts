@@ -3,7 +3,6 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 import { ProcessType } from '../enum/construction-site-detail.enum';
 import { ImageTypeEnum } from '../enum/image.enum';
 
-
 @Entity('images')
 export class ImageEntity extends BaseEntity {
   @PrimaryGeneratedColumn() id: number;
