@@ -9,14 +9,8 @@ import {
   Query,
   UseGuards,
 } from '@nestjs/common';
-import { AdminAdminService } from '../admin/admin-admin.service';
 import { AdminConstructionTypesService } from './admin-construction-types.service';
 import { AuthGuard } from '@nestjs/passport';
-import {
-  AdminParam,
-  CreateAdminBody,
-  UpdateAdminBody,
-} from '../../common/dto/admin/admin-admin.dto';
 import {
   ConstructionTypeParam,
   CreateConstructionTypeBody,
