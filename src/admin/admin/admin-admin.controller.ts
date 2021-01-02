@@ -6,7 +6,8 @@ import {
   Post,
   Put,
   Query,
-  UseGuards, UsePipes,
+  UseGuards,
+  UsePipes,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { CurrentAdmin } from '../../common/decorators/current-admin.decorator';

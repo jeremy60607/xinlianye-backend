@@ -11,18 +11,24 @@ import { PaginationQuery } from '../common/dto/pagination.dto';
 import { ConstructionTypeEntity } from '../entity/construction-type.entity';
 import {
   ConstructionTypeDTO,
-  CreateConstructionTypeBody, FindConstructionTypesPaginationDTO, FindConstructionTypesQuery,
+  CreateConstructionTypeBody,
+  FindConstructionTypesPaginationDTO,
+  FindConstructionTypesQuery,
   UpdateConstructionTypeBody,
 } from '../common/dto/construction-type/construction-type.dto';
 
 @EntityRepository(ConstructionTypeEntity)
-export class ConstructionTypeRepository extends Repository<ConstructionTypeEntity> {
-
+export class ConstructionTypeRepository extends Repository<
+  ConstructionTypeEntity
+> {
   async createConstructionType(dto: CreateConstructionTypeBody) {
     await this.create({ ...dto, isDeleted: false });
   }
 
-  async updateConstructionTypeByDTOAndConstructionTypeId(constructionTypeId: number, dto: UpdateConstructionTypeBody) {
+  async updateConstructionTypeByDTOAndConstructionTypeId(
+    constructionTypeId: number,
+    dto: UpdateConstructionTypeBody,
+  ) {
     await this.update({ id: constructionTypeId }, { ...dto });
   }
 

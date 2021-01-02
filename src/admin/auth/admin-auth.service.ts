@@ -2,7 +2,10 @@ import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { Util } from '../../common/util';
 import { AdminRoleEnum, AdminStatusEnum } from '../../enum/admin.enum';
-import { AdminLoginBody, AdminTokenPayload } from '../../common/dto/auth/admin-auth.dto';
+import {
+  AdminLoginBody,
+  AdminTokenPayload,
+} from '../../common/dto/auth/admin-auth.dto';
 import { AdminRepository } from '../../repository/admin.repository';
 import { jwtConstants } from '../../common/constant/jwt.constant';
 import { plainToClass } from 'class-transformer';

@@ -1,9 +1,6 @@
 import { Expose, Type } from 'class-transformer';
 import { AdminRoleEnum, AdminStatusEnum } from '../../../enum/admin.enum';
-import {
-  PaginationDTO,
-  PaginationQuery,
-} from '../pagination.dto';
+import { PaginationDTO, PaginationQuery } from '../pagination.dto';
 
 export class AdminBaseDTO {
   @Expose()

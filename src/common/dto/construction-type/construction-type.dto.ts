@@ -15,16 +15,17 @@ export class ConstructionTypeBaseDTO {
   percentage: number;
 }
 
-export class ConstructionTypeDTO extends ConstructionTypeBaseDTO{
+export class ConstructionTypeDTO extends ConstructionTypeBaseDTO {
   @Expose()
   id: number;
 }
 
-export class CreateConstructionTypeBody extends ConstructionTypeBaseDTO{}
+export class CreateConstructionTypeBody extends ConstructionTypeBaseDTO {}
 
-export class UpdateConstructionTypeBody extends ConstructionTypeBaseDTO{}
+export class UpdateConstructionTypeBody extends ConstructionTypeBaseDTO {}
 
-export class FindConstructionTypesQuery extends ConstructionTypeDTO implements PaginationQuery{
+export class FindConstructionTypesQuery extends ConstructionTypeDTO
+  implements PaginationQuery {
   limit: number;
   offset: number;
 }
