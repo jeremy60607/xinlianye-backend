@@ -33,7 +33,7 @@ export class FindConstructionTypesQuery extends ConstructionTypeDTO
 export class FindConstructionTypesPaginationDTO {
   @Expose()
   @Type(() => ConstructionTypeDTO)
-  constructionTypeS: ConstructionTypeDTO[];
+  constructionTypes: ConstructionTypeDTO[];
 
   @Expose()
   @Type(() => PaginationDTO)

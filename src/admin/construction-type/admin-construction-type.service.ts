@@ -11,7 +11,7 @@ import {
 import { ConstructionTypeEntity } from '../../entity/construction-type.entity';
 
 @Injectable()
-export class AdminConstructionTypesService {
+export class AdminConstructionTypeService {
   constructor(
     private readonly constructionTypeRepository: ConstructionTypeRepository,
   ) {}

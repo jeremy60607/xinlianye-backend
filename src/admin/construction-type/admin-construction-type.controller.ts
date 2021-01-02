@@ -9,7 +9,7 @@ import {
   Query,
   UseGuards,
 } from '@nestjs/common';
-import { AdminConstructionTypesService } from './admin-construction-types.service';
+import { AdminConstructionTypeService } from './admin-construction-type.service';
 import { AuthGuard } from '@nestjs/passport';
 import {
   ConstructionTypeParam,
@@ -21,14 +21,14 @@ import {
 import { plainToClass } from 'class-transformer';
 
 @Controller('v1/admin/construction-types')
-export class AdminConstructionTypesController {
+export class AdminConstructionTypeController {
   constructor(
-    private readonly adminConstructionTypesService: AdminConstructionTypesService,
+    private readonly adminConstructionTypesService: AdminConstructionTypeService,
   ) {}
 
   @UseGuards(AuthGuard('admin-auth'))
   @Put('/:constructionTypeId')
-  async updateAdminByAdminId(
+  async updateConstructionTypeByDTOAndConstructionTypeId(
     @Param() param: ConstructionTypeParam,
     @Body() body: UpdateConstructionTypeBody,
   ) {
