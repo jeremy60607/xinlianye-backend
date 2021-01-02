@@ -5,7 +5,8 @@ import {
   Param,
   Post,
   Put,
-  UseGuards,
+  Query,
+  UseGuards, UsePipes,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { CurrentAdmin } from '../../common/decorators/current-admin.decorator';
@@ -19,8 +20,10 @@ import {
   UpdateAdminBody,
 } from './dto/admin-admin.dto';
 import { plainToClass } from 'class-transformer';
+import { PaginationDTO } from '../../common/dto/pagination.dto';
+import { PaginationQueryPipe } from '../../common/pipes/pagination-query-pipe.service';
 
-@Controller('v1/admin/admin')
+@Controller('v1/admin/admins')
 export class AdminAdminController {
   constructor(private readonly adminAdminService: AdminAdminService) {}
 
@@ -47,18 +50,24 @@ export class AdminAdminController {
   }
 
   @UseGuards(AuthGuard('admin-auth'))
+  @UsePipes(new PaginationQueryPipe())
   @Get('/')
   async findAdmins(
-    @CurrentAdmin() query: FindAdminsQuery,
+    @Query() query: FindAdminsQuery,
   ): Promise<FindAdminsPaginationDTO> {
     const [
       admins,
       totalCount,
     ] = await this.adminAdminService.findAdminsAndCountByDTO(query);
+
     const { offset, limit } = query;
-    return plainToClass(FindAdminsPaginationDTO, {
-      admins,
-      pagination: { offset, limit, totalCount },
-    });
+    return plainToClass(
+      FindAdminsPaginationDTO,
+      {
+        admins,
+        pagination: { offset, limit, totalCount },
+      },
+      { excludeExtraneousValues: true },
+    );
   }
 }

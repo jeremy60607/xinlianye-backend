@@ -50,8 +50,10 @@ export class FindAdminsQuery extends AdminBaseDTO implements PaginationQuery {
 
 export class FindAdminsPaginationDTO {
   @Expose()
+  @Type(() => AdminDTO)
   admins: AdminDTO[];
 
+  @Expose()
   @Type(() => PaginationDTO)
   pagination: PaginationDTO;
 }
