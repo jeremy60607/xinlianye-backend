@@ -3,7 +3,7 @@ import { AdminRoleEnum, AdminStatusEnum } from '../../../enum/admin.enum';
 import {
   PaginationDTO,
   PaginationQuery,
-} from '../../../common/dto/pagination.dto';
+} from '../pagination.dto';
 
 export class AdminBaseDTO {
   @Expose()

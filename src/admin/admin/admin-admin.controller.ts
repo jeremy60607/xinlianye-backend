@@ -18,7 +18,7 @@ import {
   FindAdminsPaginationDTO,
   FindAdminsQuery,
   UpdateAdminBody,
-} from './dto/admin-admin.dto';
+} from '../../common/dto/admin/admin-admin.dto';
 import { plainToClass } from 'class-transformer';
 import { PaginationDTO } from '../../common/dto/pagination.dto';
 import { PaginationQueryPipe } from '../../common/pipes/pagination-query-pipe.service';

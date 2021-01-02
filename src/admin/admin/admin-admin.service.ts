@@ -9,7 +9,7 @@ import {
   FindAdminsQuery,
   GetMeDTO,
   UpdateAdminBody,
-} from './dto/admin-admin.dto';
+} from '../../common/dto/admin/admin-admin.dto';
 import { AdminRepository } from '../../repository/admin.repository';
 import { AdminEntity } from '../../entity/admin.entity';
 

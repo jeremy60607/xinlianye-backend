@@ -5,7 +5,7 @@ import {
   AdminDTO,
   CreateAdminBody,
   UpdateAdminBody,
-} from '../admin/admin-admin/dto/admin-admin.dto';
+} from '../common/dto/admin/admin-admin.dto';
 import { Util } from '../common/util';
 import { PaginationQuery } from '../common/dto/pagination.dto';
 

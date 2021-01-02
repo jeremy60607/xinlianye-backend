@@ -3,7 +3,7 @@ import { AdminAuthService } from './admin-auth.service';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { jwtConstants } from '../../common/constant/jwt.constant';
-import { AdminTokenPayload } from './dto/admin-auth.dto';
+import { AdminTokenPayload } from '../../common/dto/auth/admin-auth.dto';
 
 @Injectable()
 export class AdminAuthStrategy extends PassportStrategy(
