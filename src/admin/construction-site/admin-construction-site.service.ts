@@ -2,7 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { ConstructionTypeRepository } from '../../repository/construction-type.repository';
 import { ConstructionSiteRepository } from '../../repository/construction-site.repository';
 import {
-  CreateConstructionTypeBody, FindConstructionTypesQuery,
+  CreateConstructionTypeBody,
+  FindConstructionTypesQuery,
   UpdateConstructionTypeBody,
 } from '../../common/dto/construction-type/construction-type.dto';
 import { ConstructionTypeEntity } from '../../entity/construction-type.entity';

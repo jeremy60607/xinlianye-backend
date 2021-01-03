@@ -24,7 +24,9 @@ import {
 } from '../common/dto/construction-sit/construction-site.dto';
 
 @EntityRepository(ConstructionSiteEntity)
-export class ConstructionSiteRepository extends Repository<ConstructionSiteEntity> {
+export class ConstructionSiteRepository extends Repository<
+  ConstructionSiteEntity
+> {
   async createConstructionSite(dto: CreateConstructionSiteBody) {
     await this.create({ ...dto, isDeleted: false });
   }
