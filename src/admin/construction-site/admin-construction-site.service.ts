@@ -21,10 +21,10 @@ export class AdminConstructionSiteService {
   ) {}
 
   async createConstructionSiteByDTO(
-    createConstructionSitBody: CreateConstructionSiteBody,
+    createConstructionSiteBody: CreateConstructionSiteBody,
   ) {
     await this.constructionSiteRepository.createConstructionSite({
-      ...createConstructionSitBody,
+      ...createConstructionSiteBody,
     });
   }
 

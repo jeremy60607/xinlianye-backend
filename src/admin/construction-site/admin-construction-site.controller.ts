@@ -9,16 +9,8 @@ import {
   Query,
   UseGuards,
 } from '@nestjs/common';
-import { AdminConstructionTypeService } from '../construction-type/admin-construction-type.service';
 import { AdminConstructionSiteService } from './admin-construction-site.service';
 import { AuthGuard } from '@nestjs/passport';
-import {
-  ConstructionTypeParam,
-  CreateConstructionTypeBody,
-  FindConstructionTypesPaginationDTO,
-  FindConstructionTypesQuery,
-  UpdateConstructionTypeBody,
-} from '../../common/dto/construction-type/construction-type.dto';
 import { plainToClass } from 'class-transformer';
 import {
   ConstructionSiteParam,
