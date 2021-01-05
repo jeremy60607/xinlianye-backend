@@ -19,7 +19,7 @@ export class AdminRepository extends Repository<AdminEntity> {
 
   async createAdmin(dto: CreateAdminBody) {
     dto.password = await Util.bcrypt.hash(dto.password);
-    await this.create({ ...dto });
+    await this.save({ ...dto });
   }
 
   async findAdmin(dto: AdminDTO): Promise<AdminEntity> {
@@ -27,7 +27,9 @@ export class AdminRepository extends Repository<AdminEntity> {
   }
 
   async updateAdminByAdminId(adminId: number, dto: UpdateAdminBody) {
-    dto.password = await Util.bcrypt.hash(dto.password);
+    if (dto.password) {
+      dto.password = await Util.bcrypt.hash(dto.password);
+    }
     await this.update({ id: adminId }, { ...dto });
   }
 

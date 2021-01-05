@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { Util } from '../../common/util';
 import { AdminRoleEnum, AdminStatusEnum } from '../../enum/admin.enum';
@@ -29,6 +29,10 @@ export class AdminAuthService {
       account: adminLoginBody.account,
     });
 
+    if (!admin) {
+      throw new BadRequestException('帳號或密碼錯誤');
+    }
+
     if (await Util.bcrypt.compare(adminLoginBody.password, admin.password)) {
       const token = this.createSignInToken(admin.id, admin.role);
       return plainToClass(
@@ -39,6 +43,8 @@ export class AdminAuthService {
         },
         { excludeExtraneousValues: true },
       );
+    } else {
+      throw new BadRequestException('帳號或密碼錯誤');
     }
 
     return null;
