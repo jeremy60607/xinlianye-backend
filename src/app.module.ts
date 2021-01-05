@@ -5,6 +5,7 @@ import { AdminAdminModule } from './admin/admin/admin-admin.module';
 import { AdminConstructionTypeModule } from './admin/construction-type/admin-construction-type.module';
 import { AdminConstructionSiteModule } from './admin/construction-site/admin-construction-site.module';
 import { AdminConstructionSiteDetailModule } from './admin/construction-site-detail/admin-construction-site-detail.module';
+import { AdminUserModule } from './admin/user/admin-user.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { AdminConstructionSiteDetailModule } from './admin/construction-site-det
     AdminConstructionTypeModule,
     AdminConstructionSiteModule,
     AdminConstructionSiteDetailModule,
+    AdminUserModule,
   ],
   controllers: [],
   providers: [],
