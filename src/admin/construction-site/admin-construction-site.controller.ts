@@ -20,7 +20,7 @@ import {
   UpdateConstructionSiteBody,
 } from '../../common/dto/construction-sit/construction-site.dto';
 
-@Controller('construction-site')
+@Controller('v1/admin/construction-sites')
 export class AdminConstructionSiteController {
   constructor(
     private readonly adminConstructionSiteService: AdminConstructionSiteService,

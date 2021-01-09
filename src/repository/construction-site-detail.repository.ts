@@ -34,7 +34,7 @@ export class ConstructionSiteDetailRepository extends Repository<
   ConstructionSiteDetailEntity
 > {
   async createConstructionSiteDetail(dto: CreateConstructionSiteDetailBody) {
-    await this.create({ ...dto, isDeleted: false });
+    await this.save({ ...dto, isDeleted: false });
   }
 
   async updateConstructionSiteDetailByDTOAndConstructionSiteDetailId(

@@ -28,7 +28,7 @@ export class ConstructionSiteRepository extends Repository<
   ConstructionSiteEntity
 > {
   async createConstructionSite(dto: CreateConstructionSiteBody) {
-    await this.create({ ...dto, isDeleted: false });
+    await this.save({ ...dto, isDeleted: false });
   }
 
   async updateConstructionSiteByDTOAndConstructionSiteId(

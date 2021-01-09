@@ -22,7 +22,7 @@ export class ConstructionTypeRepository extends Repository<
   ConstructionTypeEntity
 > {
   async createConstructionType(dto: CreateConstructionTypeBody) {
-    await this.create({ ...dto, isDeleted: false });
+    await this.save({ ...dto, isDeleted: false });
   }
 
   async updateConstructionTypeByDTOAndConstructionTypeId(
