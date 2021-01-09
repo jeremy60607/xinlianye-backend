@@ -20,6 +20,13 @@ export class ConstructionTypes1609165118356 implements MigrationInterface {
           { name: 'title', type: 'varchar', length: '100', isNullable: false },
 
           {
+            name: 'construction_type_id',
+            type: 'int',
+            unsigned: true,
+            isNullable: false,
+          },
+
+          {
             name: 'percentage',
             type: 'tinyint',
             unsigned: true,

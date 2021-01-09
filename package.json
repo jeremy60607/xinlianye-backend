@@ -24,6 +24,7 @@
     "cfg": "scripts/config.sh"
   },
   "dependencies": {
+    "@google-cloud/storage": "^5.7.0",
     "@nestjs/common": "^7.0.0",
     "@nestjs/core": "^7.0.0",
     "@nestjs/jwt": "^7.2.0",
@@ -52,7 +53,7 @@
     "@nestjs/cli": "^7.0.0",
     "@nestjs/schematics": "^7.0.0",
     "@nestjs/testing": "^7.0.0",
-    "@types/express": "^4.17.3",
+    "@types/express": "^4.17.9",
     "@types/jest": "25.2.3",
     "@types/node": "^13.9.1",
     "@types/passport-jwt": "^3.0.3",

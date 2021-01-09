@@ -17,7 +17,7 @@ import {
 @EntityRepository(UserEntity)
 export class UserRepository extends Repository<UserEntity> {
   async findUserById(id: number): Promise<UserEntity> {
-    return this.createQueryBuilder('users')
+    return await this.createQueryBuilder('users')
       .where({ id })
       .getOne();
   }

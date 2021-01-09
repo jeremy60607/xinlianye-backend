@@ -17,9 +17,12 @@ export class Images1609166356419 implements MigrationInterface {
             generationStrategy: 'increment',
           },
 
-          { name: 'url', type: 'varchar', length: '200', isNullable: false },
-
-          { name: 'type', type: 'tinyint', unsigned: true, isNullable: false },
+          {
+            name: 'file_dir',
+            type: 'varchar',
+            length: '200',
+            isNullable: false,
+          },
 
           { name: 'belong_id', type: 'int', unsigned: true, isNullable: false },
 
