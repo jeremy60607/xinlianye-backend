@@ -23,7 +23,7 @@ export class ConstructionTypes1609165118356 implements MigrationInterface {
             name: 'construction_type_id',
             type: 'int',
             unsigned: true,
-            isNullable: false,
+            isNullable: true,
           },
 
           {

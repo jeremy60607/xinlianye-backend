@@ -2,17 +2,20 @@ import { Injectable } from '@nestjs/common';
 import { UserRepository } from '../../repository/user.repository';
 import { ImageRepository } from '../../repository/image.repository';
 import {
-  CreateImageBody,
+  CreateImageParam,
   FindImageUrlsQuery,
 } from '../../common/dto/image/image.dto';
 import { Util } from '../../common/util';
 
 @Injectable()
 export class AdminImageService {
-  constructor(private readonly imageRepository: ImageRepository) {}
+  constructor(private readonly imageRepository: ImageRepository) {
+  }
 
-  async createImage(dto: CreateImageBody, file) {
-    const image = await this.imageRepository.createImage(dto);
+  async createImage(dto: CreateImageParam, file) {
+    const imageEntities = await this.imageRepository.findImagesByBelongId(dto.belongId);
+    const imageMaxSort = imageEntities[imageEntities.length - 1].sort;
+    const image = await this.imageRepository.createImage({ ...dto, sort: imageMaxSort + 1 });
 
     await Util.gcp.upload(dto.fileDir, image.id.toString(), file);
   }
@@ -21,11 +24,15 @@ export class AdminImageService {
     const { belongId, fileDir } = dto;
     const images = await this.imageRepository.findImagesByBelongId(belongId);
     const imageIds = images.map(image => image.id.toString());
-    const imageUrls = [];
+    const imageData = [];
     for (const imageId of imageIds) {
       const url = await Util.gcp.getSignedUrl(fileDir, imageId);
-      imageUrls.push(url);
+      imageData.push({ url, id: Number(imageId) });
     }
-    return imageUrls;
+    return imageData;
+  }
+
+  async updateImageSortByImageId(id: number, sort: number) {
+    await this.imageRepository.update({ id }, { sort });
   }
 }

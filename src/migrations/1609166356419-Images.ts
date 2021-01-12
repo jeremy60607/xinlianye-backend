@@ -34,6 +34,13 @@ export class Images1609166356419 implements MigrationInterface {
           },
 
           {
+            name: 'sort',
+            type: 'int',
+            isNullable: false,
+            default: false,
+          },
+
+          {
             name: 'updated_at',
             type: 'datetime',
             isNullable: false,

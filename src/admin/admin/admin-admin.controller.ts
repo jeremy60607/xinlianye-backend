@@ -28,7 +28,7 @@ import { PaginationQueryPipe } from '../../common/pipes/pagination-query-pipe.se
 export class AdminAdminController {
   constructor(private readonly adminAdminService: AdminAdminService) {}
 
-  // @UseGuards(AuthGuard('admin-auth'))
+  @UseGuards(AuthGuard('admin-auth'))
   @Post('/')
   async createAdmin(@Body() createAdminDTO: CreateAdminBody) {
     return await this.adminAdminService.createAdminByDTO(createAdminDTO);

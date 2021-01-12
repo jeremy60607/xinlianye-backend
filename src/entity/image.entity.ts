@@ -9,5 +9,7 @@ export class ImageEntity extends BaseEntity {
 
   @Column({ name: 'belong_id' }) belongId: number;
 
+  @Column() sort: number;
+
   @Column({ name: 'is_deleted' }) isDeleted: boolean;
 }

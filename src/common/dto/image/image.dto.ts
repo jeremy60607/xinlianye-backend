@@ -1,8 +1,13 @@
 import { Expose } from 'class-transformer';
 
-export class CreateImageBody {
+export class ImageParam {
+  imageId: number;
+}
+
+export class CreateImageParam {
   belongId: number;
   fileDir: string;
+  sort: number;
 }
 
 export class FindImageUrlsQuery {
@@ -12,5 +17,5 @@ export class FindImageUrlsQuery {
 
 export class FindImageUrlsResponse {
   @Expose()
-  imageUrls: string[];
+  images: {url: string, id: number}[];
 }
