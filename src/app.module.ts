@@ -9,6 +9,7 @@ import { AdminUserModule } from './admin/user/admin-user.module';
 import { AdminImageModule } from './admin/image/admin-image.module';
 import { AuthModule } from './app/auth/auth.module';
 import { ConstructionTypeModule } from './construction-type/construction-type.module';
+import { ConstructionSiteModule } from './construction-site/construction-site.module';
 
 @Module({
   imports: [
@@ -27,6 +28,8 @@ import { ConstructionTypeModule } from './construction-type/construction-type.mo
     AuthModule,
 
     ConstructionTypeModule,
+
+    ConstructionSiteModule,
   ],
   controllers: [],
   providers: [],
