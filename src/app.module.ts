@@ -11,6 +11,7 @@ import { AuthModule } from './app/auth/auth.module';
 import { ConstructionTypeModule } from './construction-type/construction-type.module';
 import { ConstructionSiteModule } from './construction-site/construction-site.module';
 import { ConstructionSiteDetailModule } from './construction-site-detail/construction-site-detail.module';
+import { ImageModule } from './image/image.module';
 
 @Module({
   imports: [
@@ -33,6 +34,8 @@ import { ConstructionSiteDetailModule } from './construction-site-detail/constru
     ConstructionSiteModule,
 
     ConstructionSiteDetailModule,
+
+    ImageModule,
   ],
   controllers: [],
   providers: [],
