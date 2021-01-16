@@ -1,5 +1,15 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Query, UseGuards } from '@nestjs/common';
-import { AdminConstructionSiteDetailService } from '../admin/construction-site-detail/admin-construction-site-detail.service';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+  Query,
+  UseGuards,
+} from '@nestjs/common';
+import { AdminConstructionSiteDetailService } from '../../admin/construction-site-detail/admin-construction-site-detail.service';
 import { AuthGuard } from '@nestjs/passport';
 import {
   ConstructionSiteDetailParam,
@@ -7,13 +17,12 @@ import {
   FindConstructionSiteDetailsPaginationDTO,
   FindConstructionSiteDetailsQuery,
   UpdateConstructionSiteDetailBody,
-} from '../common/dto/construction-sit-detail/construction-site-detail.dto';
+} from '../../common/dto/construction-sit-detail/construction-site-detail.dto';
 import { plainToClass } from 'class-transformer';
 import { ConstructionSiteDetailService } from './construction-site-detail.service';
 
 @Controller('v1/construction-site-details')
 export class ConstructionSiteDetailController {
-
   constructor(
     private readonly constructionSiteDetailService: ConstructionSiteDetailService,
   ) {}

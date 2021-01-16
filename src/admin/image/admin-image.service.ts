@@ -9,13 +9,17 @@ import { Util } from '../../common/util';
 
 @Injectable()
 export class AdminImageService {
-  constructor(private readonly imageRepository: ImageRepository) {
-  }
+  constructor(private readonly imageRepository: ImageRepository) {}
 
   async createImage(dto: CreateImageParam, file) {
-    const imageEntities = await this.imageRepository.findImagesByBelongId(dto.belongId);
+    const imageEntities = await this.imageRepository.findImagesByBelongId(
+      dto.belongId,
+    );
     const imageMaxSort = imageEntities[imageEntities.length - 1].sort;
-    const image = await this.imageRepository.createImage({ ...dto, sort: imageMaxSort + 1 });
+    const image = await this.imageRepository.createImage({
+      ...dto,
+      sort: imageMaxSort + 1,
+    });
 
     await Util.gcp.upload(dto.fileDir, image.id.toString(), file);
   }

@@ -1,17 +1,18 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { UserRepository } from '../../repository/user.repository';
 import { UserRoleEnum, UserStatusEnum } from '../../enum/user.enum';
-import { UserLoginBody, UserTokenPayload } from '../../common/dto/auth/auth.dto';
+import {
+  UserLoginBody,
+  UserTokenPayload,
+} from '../../common/dto/auth/auth.dto';
 import { Util } from '../../common/util';
 import { plainToClass } from 'class-transformer';
 import { GetMeDTO, UserDTO } from 'src/common/dto/user/admin-user.dto';
 import { jwtConstants } from '../../common/constant/jwt.constant';
 
-
 @Injectable()
 export class AuthService {
-  constructor(private userRepository: UserRepository) {
-  }
+  constructor(private userRepository: UserRepository) {}
 
   async validateUser(id: number): Promise<any> {
     const userEntity = await this.userRepository.findUserById(id);
@@ -23,10 +24,7 @@ export class AuthService {
   }
 
   async login(userLoginBody: UserLoginBody) {
-
-
-
-    const userEntity = await this.userRepository.findUser( {
+    const userEntity = await this.userRepository.findUser({
       account: userLoginBody.account,
     });
 
@@ -34,7 +32,9 @@ export class AuthService {
       throw new BadRequestException('帳號或密碼錯誤');
     }
 
-    if (await Util.bcrypt.compare(userLoginBody.password, userEntity.password)) {
+    if (
+      await Util.bcrypt.compare(userLoginBody.password, userEntity.password)
+    ) {
       const token = this.createSignInToken(userEntity.id, userEntity.role);
       return plainToClass(
         GetMeDTO,

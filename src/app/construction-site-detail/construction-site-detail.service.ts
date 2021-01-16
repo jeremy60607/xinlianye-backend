@@ -1,14 +1,14 @@
 import { Injectable } from '@nestjs/common';
-import { ConstructionSiteDetailRepository } from '../repository/construction-site-detail.repository';
+import { ConstructionSiteDetailRepository } from '../../repository/construction-site-detail.repository';
 import {
-  CreateConstructionSiteDetailBody, FindConstructionSiteDetailsQuery,
+  CreateConstructionSiteDetailBody,
+  FindConstructionSiteDetailsQuery,
   UpdateConstructionSiteDetailBody,
-} from '../common/dto/construction-sit-detail/construction-site-detail.dto';
-import { ConstructionSiteDetailEntity } from '../entity/construction-site-detail.entity';
+} from '../../common/dto/construction-sit-detail/construction-site-detail.dto';
+import { ConstructionSiteDetailEntity } from '../../entity/construction-site-detail.entity';
 
 @Injectable()
 export class ConstructionSiteDetailService {
-
   constructor(
     private readonly constructionSiteDetailRepository: ConstructionSiteDetailRepository,
   ) {}

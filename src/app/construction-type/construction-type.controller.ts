@@ -1,15 +1,27 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Query, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+  Query,
+  UseGuards,
+} from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import {
-  ConstructionTypeParam, CreateConstructionTypeBody, FindConstructionTypesPaginationDTO, FindConstructionTypesQuery,
+  ConstructionTypeParam,
+  CreateConstructionTypeBody,
+  FindConstructionTypesPaginationDTO,
+  FindConstructionTypesQuery,
   UpdateConstructionTypeBody,
-} from '../common/dto/construction-type/construction-type.dto';
+} from '../../common/dto/construction-type/construction-type.dto';
 import { plainToClass } from 'class-transformer';
 import { ConstructionTypeService } from './construction-type.service';
 
 @Controller('v1/construction-types')
 export class ConstructionTypeController {
-
   constructor(
     private readonly constructionTypeService: ConstructionTypeService,
   ) {}
@@ -46,9 +58,7 @@ export class ConstructionTypeController {
     const [
       constructionTypes,
       totalCount,
-    ] = await this.constructionTypeService.findConstructionTypesByDTO(
-      query,
-    );
+    ] = await this.constructionTypeService.findConstructionTypesByDTO(query);
     const { offset, limit } = query;
     return plainToClass(FindConstructionTypesPaginationDTO, {
       constructionTypes,

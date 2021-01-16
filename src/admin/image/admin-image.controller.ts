@@ -1,10 +1,12 @@
 import {
   Body,
   Controller,
-  Get, Param,
+  Get,
+  Param,
   Post,
   Query,
-  UploadedFile, UseGuards,
+  UploadedFile,
+  UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
@@ -13,7 +15,8 @@ import { Express } from 'express';
 import {
   CreateImageParam,
   FindImageUrlsQuery,
-  FindImageUrlsResponse, ImageParam,
+  FindImageUrlsResponse,
+  ImageParam,
 } from '../../common/dto/image/image.dto';
 import { AdminUserService } from '../user/admin-user.service';
 import { AdminImageService } from './admin-image.service';
@@ -22,13 +25,13 @@ import { AuthGuard } from '@nestjs/passport';
 
 @Controller('v1/admin/images')
 export class AdminImageController {
-  constructor(private readonly imageService: AdminImageService) {
-  }
+  constructor(private readonly imageService: AdminImageService) {}
 
   @Post('/:imageId')
   @UseGuards(AuthGuard('admin-auth'))
   async updateImageBySort(
-    @Param() param: ImageParam, @Body('sort') sort: number,
+    @Param() param: ImageParam,
+    @Body('sort') sort: number,
   ) {
     await this.imageService.updateImageSortByImageId(param.imageId, sort);
   }

@@ -6,10 +6,7 @@ import { UserTokenPayload } from '../../common/dto/auth/auth.dto';
 import { jwtConstants } from '../../common/constant/jwt.constant';
 
 @Injectable()
-export class AuthStrategy extends PassportStrategy(
-  Strategy,
-  'user-auth'
-) {
+export class AuthStrategy extends PassportStrategy(Strategy, 'user-auth') {
   constructor(private authService: AuthService) {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),

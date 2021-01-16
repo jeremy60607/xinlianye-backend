@@ -1,14 +1,14 @@
 import { Injectable } from '@nestjs/common';
-import { ConstructionTypeRepository } from '../repository/construction-type.repository';
+import { ConstructionTypeRepository } from '../../repository/construction-type.repository';
 import {
-  CreateConstructionTypeBody, FindConstructionTypesQuery,
+  CreateConstructionTypeBody,
+  FindConstructionTypesQuery,
   UpdateConstructionTypeBody,
-} from '../common/dto/construction-type/construction-type.dto';
-import { ConstructionTypeEntity } from '../entity/construction-type.entity';
+} from '../../common/dto/construction-type/construction-type.dto';
+import { ConstructionTypeEntity } from '../../entity/construction-type.entity';
 
 @Injectable()
 export class ConstructionTypeService {
-
   constructor(
     private readonly constructionTypeRepository: ConstructionTypeRepository,
   ) {}
