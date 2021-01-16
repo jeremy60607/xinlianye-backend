@@ -17,5 +17,5 @@ export class FindImageUrlsQuery {
 
 export class FindImageUrlsResponse {
   @Expose()
-  images: {url: string, id: number}[];
+  images: { url: string; id: number }[];
 }

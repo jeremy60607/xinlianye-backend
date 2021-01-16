@@ -10,7 +10,8 @@ export class ConstructionTypeEntity extends BaseEntity {
 
   @Column() percentage: number;
 
-  @Column({ name: 'construction_type_id', nullable: true }) constructionTypeId?: number;
+  @Column({ name: 'construction_type_id', nullable: true })
+  constructionTypeId?: number;
 
   @Column({ name: 'is_deleted' }) isDeleted: boolean;
 }
