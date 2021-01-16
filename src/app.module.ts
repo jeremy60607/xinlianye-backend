@@ -7,10 +7,13 @@ import { AdminConstructionSiteModule } from './admin/construction-site/admin-con
 import { AdminConstructionSiteDetailModule } from './admin/construction-site-detail/admin-construction-site-detail.module';
 import { AdminUserModule } from './admin/user/admin-user.module';
 import { AdminImageModule } from './admin/image/admin-image.module';
+import { AuthModule } from './app/auth/auth.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({ autoLoadEntities: true }),
+
+    // admin
     AdminAuthModule,
     AdminAdminModule,
     AdminConstructionTypeModule,
@@ -18,6 +21,9 @@ import { AdminImageModule } from './admin/image/admin-image.module';
     AdminConstructionSiteDetailModule,
     AdminUserModule,
     AdminImageModule,
+
+    // app
+    AuthModule,
   ],
   controllers: [],
   providers: [],

@@ -28,7 +28,7 @@ export class UserRepository extends Repository<UserEntity> {
   }
 
   async findUser(dto: UserDTO): Promise<UserEntity> {
-    return this.findOne({ ...dto });
+    return await this.findOne({ ...dto });
   }
 
   async updateUserByUserId(userId: number, dto: UpdateUserBody) {

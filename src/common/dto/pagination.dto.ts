@@ -1,4 +1,4 @@
-import { Expose } from 'class-transformer';
+import { Expose, Transform } from 'class-transformer';
 
 export class PaginationQuery {
   offset: number;
@@ -8,11 +8,14 @@ export class PaginationQuery {
 
 export class PaginationDTO {
   @Expose()
+  @Transform(value => Number(value))
   offset: number;
 
   @Expose()
+  @Transform(value => Number(value))
   limit: number;
 
   @Expose()
+  @Transform(value => Number(value))
   totalCount: number;
 }

@@ -4,13 +4,13 @@ import { UserRoleEnum, UserStatusEnum } from '../../../enum/user.enum';
 
 export class UserBaseDTO {
   @Expose()
-  account: string;
+  account?: string;
   @Expose()
-  role: UserRoleEnum;
+  role?: UserRoleEnum;
   @Expose()
-  status: UserStatusEnum;
+  status?: UserStatusEnum;
   @Expose()
-  name: string;
+  name?: string;
 }
 
 export class UserDTO extends UserBaseDTO {
