@@ -132,6 +132,6 @@ dist
 environment.ts
 .environment.ts
 
-.data
+/data
 
 xinlianye-prod-13dfdacbc4eb.json
