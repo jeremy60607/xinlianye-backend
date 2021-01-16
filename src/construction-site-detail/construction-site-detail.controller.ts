@@ -11,7 +11,7 @@ import {
 import { plainToClass } from 'class-transformer';
 import { ConstructionSiteDetailService } from './construction-site-detail.service';
 
-@Controller('construction-site-detail')
+@Controller('v1/construction-site-details')
 export class ConstructionSiteDetailController {
 
   constructor(
