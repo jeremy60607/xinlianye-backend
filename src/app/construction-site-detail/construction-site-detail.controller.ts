@@ -27,7 +27,7 @@ export class ConstructionSiteDetailController {
     private readonly constructionSiteDetailService: ConstructionSiteDetailService,
   ) {}
 
-  @UseGuards(AuthGuard('admin-auth'))
+  @UseGuards(AuthGuard('user-auth'))
   @Put('/:constructionSiteDetailId')
   async updateConstructionSiteDetailByDTOAndConstructionSiteDetailId(
     @Param() param: ConstructionSiteDetailParam,
@@ -40,7 +40,7 @@ export class ConstructionSiteDetailController {
     );
   }
 
-  @UseGuards(AuthGuard('admin-auth'))
+  @UseGuards(AuthGuard('user-auth'))
   @Delete('/:constructionSiteDetailId')
   async deleteConstructionSiteDetailByDTOAndConstructionSiteDetailId(
     @Param() param: ConstructionSiteDetailParam,
@@ -51,7 +51,7 @@ export class ConstructionSiteDetailController {
     );
   }
 
-  @UseGuards(AuthGuard('admin-auth'))
+  @UseGuards(AuthGuard('user-auth'))
   @Get('/')
   async findConstructionSiteDetailsByDTO(
     @Query() query: FindConstructionSiteDetailsQuery,
@@ -73,7 +73,7 @@ export class ConstructionSiteDetailController {
     });
   }
 
-  @UseGuards(AuthGuard('admin-auth'))
+  @UseGuards(AuthGuard('user-auth'))
   @Post('/')
   async createConstructionSiteDetailByDTO(
     @Body() body: CreateConstructionSiteDetailBody,

@@ -26,7 +26,7 @@ export class ImageController {
   constructor(private readonly imageService: ImageService) {}
 
   @Post('/:imageId')
-  @UseGuards(AuthGuard('admin-auth'))
+  @UseGuards(AuthGuard('user-auth'))
   async updateImageBySort(
     @Param() param: ImageParam,
     @Body('sort') sort: number,
@@ -35,14 +35,14 @@ export class ImageController {
   }
 
   @Post('/:fileDir/:belongId')
-  @UseGuards(AuthGuard('admin-auth'))
+  @UseGuards(AuthGuard('user-auth'))
   @UseInterceptors(FileInterceptor('file'))
   async uploadFile(@UploadedFile() file, @Param() param: CreateImageParam) {
     await this.imageService.createImage(param, file);
   }
 
   @Get('')
-  @UseGuards(AuthGuard('admin-auth'))
+  @UseGuards(AuthGuard('user-auth'))
   async findImagesByQuery(
     @Query() query: FindImageUrlsQuery,
   ): Promise<FindImageUrlsResponse> {

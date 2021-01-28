@@ -20,4 +20,7 @@ export const envs: Environment = {
 
   // token secret
   XINLIANYE_SECRET: 'xinlianye',
+
+  // gcp
+  XINLIANYE_BUCKET_FILE_NAME: 'xinlianye-prod-37f21bf84bad.json',
 };

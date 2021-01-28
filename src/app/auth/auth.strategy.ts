@@ -19,7 +19,7 @@ export class AuthStrategy extends PassportStrategy(Strategy, 'user-auth') {
     const user = await this.authService.validateUser(payload.id);
 
     if (!user) {
-      throw new UnauthorizedException();
+      throw new UnauthorizedException('您已經被停權');
     }
     return user;
   }

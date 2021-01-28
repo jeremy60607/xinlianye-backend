@@ -22,7 +22,7 @@ export class AdminAuthStrategy extends PassportStrategy(
     const admin = await this.authService.validateAdmin(payload.id);
 
     if (!admin) {
-      throw new UnauthorizedException();
+      throw new UnauthorizedException('您已經被停權');
     }
     return admin;
   }

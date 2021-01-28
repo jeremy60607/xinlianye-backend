@@ -25,7 +25,7 @@ export const Util = {
   gcp: {
     upload: async (filePath: string, filename: string, file) => {
       const bucketName = 'xinlianye_bucket_prod';
-      const keyPath = `${process.cwd()}//src/xinlianye-prod-13dfdacbc4eb.json`;
+      const keyPath = `${process.cwd()}/xinlianye-prod-37f21bf84bad.json`;
 
       const { Storage } = require('@google-cloud/storage');
       const storage = new Storage({
@@ -47,7 +47,7 @@ export const Util = {
       filename: string,
     ): Promise<string> => {
       const bucketName = 'xinlianye_bucket_prod';
-      const keyPath = `${process.cwd()}//src/xinlianye-prod-13dfdacbc4eb.json`;
+      const keyPath = `${process.cwd()}/xinlianye-prod-37f21bf84bad.json`;
       const { Storage } = require('@google-cloud/storage');
       const storage = new Storage({
         projectId: bucketName,

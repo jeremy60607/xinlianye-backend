@@ -13,6 +13,9 @@ export class ConstructionTypeBaseDTO {
 
   @Expose()
   percentage: number;
+
+  @Expose()
+  constructionTypeId: number;
 }
 
 export class ConstructionTypeDTO extends ConstructionTypeBaseDTO {

@@ -37,11 +37,24 @@ export class ConstructionTypeRepository extends Repository<
     pagination: PaginationQuery,
   ): Promise<[ConstructionTypeEntity[], number]> {
     const { offset, limit } = pagination;
-    return await this.createQueryBuilder('ct')
-      .where({ ...dto, isDeleted: false })
-      .skip(offset)
-      .take(limit)
-      .getManyAndCount();
+    const { constructionTypeId } = dto;
+    if (constructionTypeId) {
+      return await this.createQueryBuilder('ct')
+        .where({ isDeleted: false })
+        .andWhere(`ct.construction_type_id = :constructionTypeId`, {
+          constructionTypeId,
+        })
+        .skip(offset)
+        .take(limit)
+        .getManyAndCount();
+    } else {
+      return await this.createQueryBuilder('ct')
+        .where({ isDeleted: false })
+        .andWhere(`ct.construction_type_id is null`)
+        .skip(offset)
+        .take(limit)
+        .getManyAndCount();
+    }
   }
 
   async deleteConstructionTypeByConstructionTypeId(constructionTypeId: number) {

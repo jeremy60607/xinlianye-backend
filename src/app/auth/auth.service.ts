@@ -39,7 +39,7 @@ export class AuthService {
       return plainToClass(
         GetMeDTO,
         {
-          admin: { ...userEntity },
+          user: { ...userEntity },
           token,
         },
         { excludeExtraneousValues: true },

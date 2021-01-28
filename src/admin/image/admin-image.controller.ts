@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Param,
   Post,
@@ -50,5 +51,12 @@ export class AdminImageController {
   ): Promise<FindImageUrlsResponse> {
     const imageUrls = await this.imageService.findImageUrlByBelongId(query);
     return plainToClass(FindImageUrlsResponse, { imageUrls });
+  }
+
+  @Delete('/:imageId')
+  @UseGuards(AuthGuard('admin-auth'))
+  async deleteImageByImageId(@Param() param: ImageParam) {
+    const { imageId } = param;
+    await this.imageService.deleteImageByImageId(imageId);
   }
 }

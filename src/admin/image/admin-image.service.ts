@@ -15,10 +15,14 @@ export class AdminImageService {
     const imageEntities = await this.imageRepository.findImagesByBelongId(
       dto.belongId,
     );
-    const imageMaxSort = imageEntities[imageEntities.length - 1].sort;
+    const imageMaxSort =
+      imageEntities.length === 0
+        ? 0
+        : imageEntities[imageEntities.length - 1].sort;
     const image = await this.imageRepository.createImage({
       ...dto,
       sort: imageMaxSort + 1,
+      fileName: file.originalname,
     });
 
     await Util.gcp.upload(dto.fileDir, image.id.toString(), file);
@@ -27,16 +31,19 @@ export class AdminImageService {
   async findImageUrlByBelongId(dto: FindImageUrlsQuery): Promise<string[]> {
     const { belongId, fileDir } = dto;
     const images = await this.imageRepository.findImagesByBelongId(belongId);
-    const imageIds = images.map(image => image.id.toString());
     const imageData = [];
-    for (const imageId of imageIds) {
-      const url = await Util.gcp.getSignedUrl(fileDir, imageId);
-      imageData.push({ url, id: Number(imageId) });
+    for (const image of images) {
+      const url = await Util.gcp.getSignedUrl(fileDir, image.id.toString());
+      imageData.push({ url, id: image.id, name: image.fileName });
     }
     return imageData;
   }
 
   async updateImageSortByImageId(id: number, sort: number) {
     await this.imageRepository.update({ id }, { sort });
+  }
+
+  async deleteImageByImageId(id: number) {
+    await this.imageRepository.update({ id }, { isDeleted: true });
   }
 }

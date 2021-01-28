@@ -5,8 +5,14 @@ import { CreateImageParam } from '../common/dto/image/image.dto';
 @EntityRepository(ImageEntity)
 export class ImageRepository extends Repository<ImageEntity> {
   async createImage(dto: CreateImageParam): Promise<ImageEntity> {
-    const { fileDir, belongId } = dto;
-    return await this.save({ fileDir, belongId, isDeleted: false });
+    const { fileDir, belongId, sort, fileName } = dto;
+    return await this.save({
+      fileDir,
+      belongId,
+      isDeleted: false,
+      sort,
+      fileName,
+    });
   }
 
   async findImagesByBelongId(belongId: number): Promise<ImageEntity[]> {

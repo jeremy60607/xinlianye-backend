@@ -7,6 +7,8 @@ export class ImageEntity extends BaseEntity {
 
   @Column({ name: 'file_dir' }) fileDir: string;
 
+  @Column({ name: 'file_name' }) fileName: string;
+
   @Column({ name: 'belong_id' }) belongId: number;
 
   @Column() sort: number;
