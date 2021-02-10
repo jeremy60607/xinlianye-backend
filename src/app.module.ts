@@ -12,6 +12,8 @@ import { ConstructionTypeModule } from './app/construction-type/construction-typ
 import { ConstructionSiteModule } from './app/construction-site/construction-site.module';
 import { ConstructionSiteDetailModule } from './app/construction-site-detail/construction-site-detail.module';
 import { ImageModule } from './app/image/image.module';
+import { UpdateAtModule } from './app/update-at/update-at.module';
+import { AdminUpdateAtModule } from './admin/update-at/admin-update-at.module';
 
 @Module({
   imports: [
@@ -32,6 +34,8 @@ import { ImageModule } from './app/image/image.module';
     ConstructionSiteModule,
     ConstructionSiteDetailModule,
     ImageModule,
+    UpdateAtModule,
+    AdminUpdateAtModule,
   ],
   controllers: [],
   providers: [],
