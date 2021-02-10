@@ -7,7 +7,7 @@ import {
 } from '../../common/dto/auth/auth.dto';
 import { Util } from '../../common/util';
 import { plainToClass } from 'class-transformer';
-import { GetMeDTO, UserDTO } from 'src/common/dto/user/admin-user.dto';
+import { GetMeDTO, UserDTO } from '../../common/dto/user/admin-user.dto';
 import { jwtConstants } from '../../common/constant/jwt.constant';
 
 @Injectable()
