@@ -12,7 +12,7 @@ export class ConstructionSiteEntity extends BaseEntity {
 
   @Column({ name: 'construction_type_id' }) constructionTypeId: number;
 
-  @Column() percentage: number;
+  @Column({ type: 'float' }) percentage: number;
 
   @Column() notes: string;
 

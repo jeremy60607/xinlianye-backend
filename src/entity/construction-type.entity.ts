@@ -8,7 +8,7 @@ export class ConstructionTypeEntity extends BaseEntity {
 
   @Column() title: string;
 
-  @Column() percentage: number;
+  @Column({ type: 'float' }) percentage: number;
 
   @Column({ name: 'construction_type_id', nullable: true })
   constructionTypeId?: number;
