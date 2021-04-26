@@ -8,7 +8,7 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe()).setGlobalPrefix('api');
   app.use(helmet());
   app.enableCors();
-  await app.listen(3000);
+  await app.listen(8080);
 
   console.log(`Application is running on: ${await app.getUrl()}`);
 }

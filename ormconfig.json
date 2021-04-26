@@ -1,9 +1,9 @@
 {
   "type": "mysql",
-  "host": "localhost",
-  "port": 24406,
-  "username": "xinlianye",
-  "password": "12345678",
+  "host": "34.80.53.36",
+  "port": 3306,
+  "username": "root",
+  "password": "",
   "database": "xinlianye",
   "entities": ["dist/**/*.entity{.ts,.js}"],
   "synchronize": true
