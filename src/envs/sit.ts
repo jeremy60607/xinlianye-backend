@@ -12,10 +12,10 @@ export const envs: Environment = {
   XINLIANYE_PORT: '3000',
 
   // db
-  XINLIANYE_DB_HOST: 'localhost',
-  XINLIANYE_DB_PORT: '24406',
-  XINLIANYE_DB_USER: 'xinlianye',
-  XINLIANYE_DB_PASS: '12345678',
+  XINLIANYE_DB_HOST: '172.22.96.5',
+  XINLIANYE_DB_PORT: '3306',
+  XINLIANYE_DB_USER: 'root',
+  XINLIANYE_DB_PASS: '666mfmrOfbwEK1si',
   XINLIANYE_DB_NAME: 'xinlianye',
 
   // token secret
